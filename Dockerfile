@@ -4,4 +4,5 @@ RUN apk update && apk upgrade --available \
     python3 -V
 RUN mkdir /app
 COPY new.py /app
+WORKDIR /app
 RUN python3 new.py
