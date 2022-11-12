@@ -10,11 +10,5 @@ pipeline {
                 sh 'docker build -t py-test .'                
             }        
         }
-
-        stage('deploy') {
-            steps {
-                sh 'docker run -t -i py-test sh'               
-            }        
-        }
     }
 }
