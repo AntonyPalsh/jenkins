@@ -3,7 +3,7 @@ pipeline {
         label 'main'
         }
     options {
-        timestams()
+        timestamps()
     }
     stages {
         stage('build') {
