@@ -1,6 +1,6 @@
 FROM alpine
-RUN RUN apk add --no-cache curl wget busybox-extras netcat-openbsd python py-pip && \
-    pip install awscli && \ 
-    apk --purge -v del py-pip
+RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python \
+    python3 -m ensurepip \
+    pip3 install --no-cache --upgrade pip setuptools
 RUN mkdir /app && rm /app/*
 COPY new.py /app
