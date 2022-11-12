@@ -1,7 +1,5 @@
 FROM alpine
-RUN apk update && apk upgrade --available \
-    apk add --update python3 \
-    python3 -V
+RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
 RUN mkdir /app
 COPY new.py /app
 WORKDIR /app
