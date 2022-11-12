@@ -1,6 +1,6 @@
 FROM alpine
-RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python \
-    python3 -m ensurepip \
-    pip3 install --no-cache --upgrade pip setuptools
+RUN apk update && apk upgrade --available \
+    apk add --update python3 \
+    python3 -V
 RUN mkdir /app && rm /app/*
 COPY new.py /app
