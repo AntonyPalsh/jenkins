@@ -7,7 +7,7 @@ pipeline {
         stage('build') {
             steps {
                 echo '===================== starts bulding image ========================= '
-                sh 'docker build py-test:1 .'                
+                sh 'docker build -t py-test:1 .'                
             }        
         }
     }
