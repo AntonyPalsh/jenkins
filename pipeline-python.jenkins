@@ -1,0 +1,16 @@
+pipeline {
+    agent {
+        label 'main'
+        }
+    options {
+        timestams()
+    }
+    stages {
+        stage('build') {
+            steps {
+                sh echo '===================== starts bulding image ========================= '
+                sh 'docker build -t py-test .'                
+            }        
+        }
+    }
+}
