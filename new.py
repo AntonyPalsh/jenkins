@@ -10,7 +10,7 @@ producer = KafkaProducer(
 
 for i in range(1, 51):
     time.sleep(0.1)
-    #numbe = "bid_" + str(i) + ": " + str(random.uniform(0, (i*10)))
+    numbe = "bid_" + str(i) + ": " + str(random.uniform(0, (i*10)))
     data = {"bid_" + str(i) : str(random.uniform(0, (i*10)))}
     producer.send('mytopic', data)
-    #print(numbe)
+    print(numbe)
