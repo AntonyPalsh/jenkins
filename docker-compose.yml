@@ -3,7 +3,7 @@ version: '3.1'
 services:
   producer:
     container_name: producer
-    image: producer:1.5
+    image: producer
     restart: always
     environment:
       KAFKA_HOST: kafka
@@ -12,7 +12,7 @@ services:
 
   consumer:
     container_name: consumer
-    image: consumer:1.5
+    image: consumer
     restart: always
     environment:
       KAFKA_HOST: kafka
@@ -27,6 +27,8 @@ services:
     restart: always
     volumes:
       - /data/clickhouse:/var/lib/clickhouse
+    ports:
+      -8123:8123
 
   kafka:
     container_name: kafka

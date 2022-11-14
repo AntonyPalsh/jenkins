@@ -1,6 +1,7 @@
 FROM alpine
 RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+RUN pip install clickhouse-connect
 RUN mkdir /app
 COPY consumer.py /app
 WORKDIR /app
-ENTRYPOINT python3 consumer.py
+ENTRYPOINT python3 consumer.py $KAFKA_HOST $CLICKHOUSE_HOST
