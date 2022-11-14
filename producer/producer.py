@@ -15,3 +15,5 @@ for i in range(1, 51):
     data = {"bid_" + str(i) : str(random.uniform(0, (i*10)))}
     producer.send('mytopic', data)
     print(numbe)
+
+time.sleep(3600)

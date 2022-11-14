@@ -8,7 +8,7 @@ services:
     environment:
       KAFKA_HOST: kafka
     depends_on:
-      kafka
+      - kafka
 
   consumer:
     container_name: consumer
@@ -18,8 +18,8 @@ services:
       KAFKA_HOST: kafka
       CLICKHOUSE_HOST: clickhouse
     depends_on:
-      kafka
-      clickhouse
+      - kafka
+      - clickhouse
 
   clickhouse:
     container_name: clickhouse
@@ -28,11 +28,11 @@ services:
     volumes:
       - /data/clickhouse:/var/lib/clickhouse
     ports:
-      -8123:8123
+      - 8123:8123
 
   kafka:
     container_name: kafka
     image: ubuntu/kafka:3.1-22.04_edge
     restart: always
     depends_on:
-      clickhouse
+      - clickhouse
