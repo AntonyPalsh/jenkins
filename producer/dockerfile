@@ -1,6 +1,6 @@
 FROM alpine:3.16.3
 RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
 RUN mkdir /app
-COPY produser.py /app
+COPY producer.py /app
 WORKDIR /app
-ENTRYPOINT python3 new.py
+ENTRYPOINT python3 producer.py $KAFKA_HOST
