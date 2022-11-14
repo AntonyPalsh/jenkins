@@ -5,8 +5,8 @@ pipeline {
     }
     stages {
         stage('build') {
-            steps {
-                sh 'docker build -t consumer .'                
+            steps {                
+                sh 'cd consumer && docker build -t consumer .'                
             }        
         }
     }
