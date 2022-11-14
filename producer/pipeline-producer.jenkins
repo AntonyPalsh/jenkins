@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'cd ../produser'
+                sh 'cd produser'
                 sh 'docker build -t producer .'                
             }        
         }
