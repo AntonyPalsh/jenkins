@@ -1,0 +1,36 @@
+version: '3.1'
+
+services:
+  producer:
+    container_name: producer
+    image: producer:1.5
+    restart: always
+    environment:
+      KAFKA_HOST: kafka
+    depends_on:
+      kafka
+
+  consumer:
+    container_name: consumer
+    image: consumer:1.5
+    restart: always
+    environment:
+      KAFKA_HOST: kafka
+      CLICKHOUSE_HOST: clickhouse
+    depends_on:
+      kafka
+      clickhouse
+
+  clickhouse:
+    container_name: clickhouse
+    image: yandex/clickhouse-server:21.3
+    restart: always
+    volumes:
+      - /data/clickhouse:/var/lib/clickhouse
+
+  kafka:
+    container_name: kafka
+    image: ubuntu/kafka:3.1-22.04_edge
+    restart: always
+    depends_on:
+      clickhouse
