@@ -4,4 +4,5 @@ RUN apk add --update --no-cache py3-pip && pip install clickhouse-connect ; pip 
 RUN mkdir /app
 COPY consumer.py /app
 WORKDIR /app
-ENTRYPOINT python3 consumer.py $KAFKA_HOST $CLICKHOUSE_HOST
+ENTRYPOINT ["python3","producer.py"]
+CMD ["localhost", "localhost"]
