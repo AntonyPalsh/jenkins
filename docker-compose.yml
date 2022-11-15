@@ -36,3 +36,11 @@ services:
     restart: always
     depends_on:
       - clickhouse
+      - zookuper
+    environment:
+      ZOOKEEPER_HOST: zookuper
+  
+  zookuper:
+    container_name: zookuper
+    image: zookeeper:3.6.3-temurin
+    restart: always

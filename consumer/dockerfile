@@ -1,8 +1,12 @@
 FROM alpine:3.16.3
+RUN apk add --update --no-cache bash
 RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
 RUN apk add --update --no-cache py3-pip && pip install clickhouse-connect ; pip install kafka-python
+EXPOSE 9092 
+EXPOSE 9000
 RUN mkdir /app
 COPY consumer.py /app
+COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh 
 WORKDIR /app
-ENTRYPOINT ["python3","consumer.py"]
-CMD ["localhost", "localhost"]
+ENTRYPOINT ["/entrypoint.sh"]

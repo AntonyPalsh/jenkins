@@ -2,6 +2,7 @@ from json import loads
 from kafka import KafkaConsumer 
 import sys
 import clickhouse_connect
+import time
 
 print(sys.argv[1])
 print(sys.argv[2])
@@ -22,3 +23,5 @@ for message in my_consumer:
     message = message.value 
     #collection.insert_one(message) 
     #print(message + " added") 
+
+time.sleep(3600)
