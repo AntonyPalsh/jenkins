@@ -4,6 +4,7 @@ import sys
 import clickhouse_connect
 
 print(sys.argv[1])
+print(sys.argv[2])
 
 my_consumer = KafkaConsumer( 
     'testnum', 
