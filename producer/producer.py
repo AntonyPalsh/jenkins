@@ -1,15 +1,11 @@
 import random
-import time
 import sys
-from kafka import KafkaProducer
+import time
 from json import dumps
+from kafka import KafkaProducer
 
-print(sys.argv[1])
-
-producer = KafkaProducer( 
-    bootstrap_servers = [sys.argv[1] + ':9092'],
-    value_serializer = lambda x:dumps(x).encode('utf-8') 
-    ) 
+producer = KafkaProducer(bootstrap_servers=[sys.argv[1] + ':9092'],
+                         value_serializer=lambda x:dumps(x).encode('utf-8'))
 
 for i in range(1, 51):
     time.sleep(0.1)
