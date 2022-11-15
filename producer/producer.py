@@ -4,6 +4,8 @@ import sys
 from kafka import KafkaProducer
 from json import dumps
 
+print(sys.argv[1])
+
 producer = KafkaProducer( 
     bootstrap_servers = [sys.argv[1] + ':9092'],
     value_serializer = lambda x:dumps(x).encode('utf-8') 
