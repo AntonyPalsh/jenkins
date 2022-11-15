@@ -1,8 +1,10 @@
 FROM alpine:3.16.3
-RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
-RUN apk add --update --no-cache py3-pip && pip install kafka-python
+RUN apk add --update --no-cache bash
+#RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+#RUN apk add --update --no-cache py3-pip && pip install kafka-python
 RUN mkdir /app
-COPY producer.py /app
+COPY . /app
 WORKDIR /app
+CMD ["entrypoint.sh"]
 #ENTRYPOINT ["python3","producer.py"]
 #CMD ["localhost"]
