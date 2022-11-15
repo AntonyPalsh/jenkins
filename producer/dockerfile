@@ -4,4 +4,6 @@ RUN apk add --update --no-cache py3-pip && pip install kafka-python
 RUN mkdir /app
 COPY producer.py /app
 WORKDIR /app
-ENTRYPOINT python3 producer.py $KAFKA_HOST
+ARG KAFKA_HOST
+ENV ENV_KAFKA_HOST=&KAFKA_HOST 
+ENTRYPOINT python3 producer.py ${ENV_KAFKA_HOST}
