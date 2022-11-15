@@ -4,9 +4,6 @@ import sys
 import clickhouse_connect
 import time
 
-print(sys.argv[1])
-print(sys.argv[2])
-
 my_consumer = KafkaConsumer( 
     'testnum', 
      bootstrap_servers = [sys.argv[1] + ':9092'], 
