@@ -4,6 +4,7 @@ RUN apk add --update --no-cache bash
 #RUN apk add --update --no-cache py3-pip && pip install kafka-python
 RUN mkdir /app
 COPY producer.py /app
+COPY entrypoint.sh /
 WORKDIR /app
 ENTRYPOINT ["/entrypoint.sh"]
 #ENTRYPOINT ["python3","producer.py"]
