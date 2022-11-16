@@ -14,7 +14,7 @@ my_consumer = KafkaConsumer(
 )
 
 client = clickhouse_connect.get_client(host=sys.argv[2], username='default', password='password')
-client.command('CREATE TABLE new_table (key UInt32, bid String, number Float64) ENGINE MergeTree ORDER BY key')
+#client.command('CREATE TABLE new_table (key UInt32, bid String, number Float64) ENGINE MergeTree ORDER BY key')
 
 for message in my_consumer: 
     message = message.value 
